@@ -1,0 +1,149 @@
+[
+    {
+        "id": 1,
+        "input": "bukhar hai, sardard aur thandi lag rahi hai",
+        "age": 45,
+        "gender": "Male",
+        "language": "en",
+        "expected_urgency": "RED",
+        "expected_diseases": [
+            "malaria",
+            "dengue"
+        ],
+        "notes": "Classic malaria pattern — fever + chills + headache"
+    },
+    {
+        "id": 2,
+        "input": "high fever, rash, joint pain, eye pain",
+        "age": 32,
+        "gender": "Female",
+        "language": "en",
+        "expected_urgency": "RED",
+        "expected_diseases": [
+            "dengue"
+        ],
+        "notes": "Dengue triad — fever + rash + joint/eye pain"
+    },
+    {
+        "id": 3,
+        "input": "naak beh raha hai, chheenk aa rahi hai",
+        "age": 25,
+        "gender": "Female",
+        "language": "hi",
+        "expected_urgency": "GREEN",
+        "expected_diseases": [
+            "common_cold"
+        ],
+        "notes": "Hindi input — runny nose + sneezing → common cold"
+    },
+    {
+        "id": 4,
+        "input": "cough for 3 weeks, night sweats, weight loss",
+        "age": 55,
+        "gender": "Male",
+        "language": "en",
+        "expected_urgency": "YELLOW",
+        "expected_diseases": [
+            "tuberculosis"
+        ],
+        "notes": "TB hallmarks — chronic cough + night sweats + weight loss"
+    },
+    {
+        "id": 5,
+        "input": "pet dard, ulti, dast, bahut kamzori",
+        "age": 40,
+        "gender": "Female",
+        "language": "hi",
+        "expected_urgency": "YELLOW",
+        "expected_diseases": [
+            "gastroenteritis"
+        ],
+        "notes": "Hindi input — stomach pain + vomiting + diarrhea + weakness"
+    },
+    {
+        "id": 6,
+        "input": "chest pain and sweating",
+        "age": 60,
+        "gender": "Male",
+        "language": "en",
+        "expected_urgency": "RED",
+        "expected_diseases": [
+            "Emergency"
+        ],
+        "notes": "Red-flag combo rule — chest pain + sweating → possible heart attack"
+    },
+    {
+        "id": 7,
+        "input": "halka bukhar aur khansi",
+        "age": 28,
+        "gender": "Male",
+        "language": "hi",
+        "expected_urgency": "GREEN",
+        "expected_diseases": [
+            "common_cold",
+            "flu"
+        ],
+        "notes": "Mild fever + cough — likely cold or flu (GREEN)"
+    },
+    {
+        "id": 8,
+        "input": "behosh ho gaya, saans nahi aa rahi",
+        "age": 50,
+        "gender": "Male",
+        "language": "hi",
+        "expected_urgency": "RED",
+        "expected_diseases": [
+            "Emergency"
+        ],
+        "notes": "Red-flag rule — unconscious + can't breathe"
+    },
+    {
+        "id": 9,
+        "input": "tired, weak, pale skin, dizzy, no energy",
+        "age": 35,
+        "gender": "Female",
+        "language": "en",
+        "expected_urgency": "YELLOW",
+        "expected_diseases": [
+            "anemia"
+        ],
+        "notes": "Anemia pattern — fatigue + weakness + pale + dizziness"
+    },
+    {
+        "id": 10,
+        "input": "high fever, confusion, dizziness, no sweat, rapid breathing",
+        "age": 42,
+        "gender": "Male",
+        "language": "en",
+        "expected_urgency": "RED",
+        "expected_diseases": [
+            "heat_stroke"
+        ],
+        "notes": "Heat stroke — high fever + confusion + dizziness + rapid breathing"
+    },
+    {
+        "id": 11,
+        "input": "daura pad gaya, mirgi jaisi haalat",
+        "age": 30,
+        "gender": "Female",
+        "language": "hi",
+        "expected_urgency": "RED",
+        "expected_diseases": [
+            "Emergency"
+        ],
+        "notes": "Red-flag rule — seizure / fits (Hindi)"
+    },
+    {
+        "id": 12,
+        "input": "fever, body ache, muscle pain, sore throat, runny nose",
+        "age": 22,
+        "gender": "Male",
+        "language": "en",
+        "expected_urgency": "GREEN",
+        "expected_diseases": [
+            "flu",
+            "common_cold"
+        ],
+        "notes": "Flu pattern — fever + body ache + muscle pain + sore throat"
+    }
+]

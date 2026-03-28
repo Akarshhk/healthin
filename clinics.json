@@ -1,0 +1,6 @@
+[
+  {"name": "Sub-Centre Kheri",  "name_hi": "उप-केंद्र खेरी",              "km": 1.5, "phone": "9876543210",     "type": "Sub-Centre"},
+  {"name": "PHC Rampur",        "name_hi": "प्रा. स्वा. केंद्र रामपुर",    "km": 3,   "phone": "1800-180-1234", "type": "PHC"},
+  {"name": "CHC Dhanpur",       "name_hi": "सा. स्वा. केंद्र धनपुर",      "km": 8,   "phone": "1800-180-5678", "type": "CHC"},
+  {"name": "District Hospital",  "name_hi": "जिला अस्पताल",              "km": 15,  "phone": "108 (Ambulance)", "type": "Hospital"}
+]

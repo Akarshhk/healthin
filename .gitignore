@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Vosk model (large, ~50 MB — download separately)
+vosk-model-hi-0.22/
+
+# Large model binary (retrain locally via train_model.py)
+models/triage_model.json
+
+# TTS temp files
+*.wav
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
