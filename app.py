@@ -1095,48 +1095,71 @@ with gr.Blocks(
                 if not user_msg.strip():
                     yield "", history
                     return
+
                 # append user message and placeholder for assistant
                 history.append({"role": "user", "content": user_msg})
                 history.append({"role": "assistant", "content": ""})
-                
-                messages = [{"role": "system", "content": "You are a helpful and knowledgeable rural health AI assistant. Answer health-related questions concisely and safely, advising the user to consult a doctor for serious issues. Keep formatting clean with markdown."}]
+
+                # ✅ simple strong system prompt (no formatting issues)
+                system_prompt = (
+                    "You are a STRICT healthcare-only AI. "
+                    "Only answer healthcare-related queries like symptoms, illness, medicine. "
+                    "If the query is NOT healthcare-related, reply EXACTLY: "
+                    "'I only answer healthcare-related queries.' "
+                    "Do not say anything else for non-health queries. "
+                    "Keep answers short and safe. Suggest seeing a doctor if serious."
+                )
+
+                messages = [{"role": "system", "content": system_prompt}]
+
+                # add history
                 for msg in history[:-1]:
                     if isinstance(msg, dict):
-                        messages.append({"role": msg.get("role", "user"), "content": msg.get("content", "")})
-                    else:
-                        pass # Ignore or handle if needed
-                
+                        messages.append({
+                            "role": msg.get("role", "user"),
+                            "content": msg.get("content", "")
+                        })
+
                 try:
                     import requests, json
+
                     response = requests.post(
                         "http://172.111.0.45:1234/v1/chat/completions",
                         json={
                             "model": "local-model",
                             "messages": messages,
-                            "temperature": 0.5,
+                            "temperature": 0.2,
                             "stream": True
                         },
                         stream=True,
-                        timeout=5
+                        timeout=10
                     )
+
                     response.raise_for_status()
+
                     for line in response.iter_lines():
                         if line:
-                            line_str = line.decode('utf-8')
+                            line_str = line.decode("utf-8")
+
                             if line_str.startswith("data: "):
                                 data_str = line_str[6:]
+
                                 if data_str.strip() == "[DONE]":
                                     break
+
                                 try:
                                     data = json.loads(data_str)
-                                    chunk = data.get('choices', [{}])[0].get('delta', {}).get('content', '')
+                                    chunk = data.get("choices", [{}])[0].get("delta", {}).get("content", "")
+
                                     if chunk:
                                         history[-1]["content"] += chunk
                                         yield "", history
-                                except BaseException:
+
+                                except:
                                     pass
+
                 except Exception as e:
-                    history[-1]["content"] += f"\\n\\n*Error connecting to LM Studio at 172.111.0.45:1234: {str(e)}*"
+                    history[-1]["content"] += "\n\nError: " + str(e)
                     yield "", history
 
             # Wire up chat submitting
