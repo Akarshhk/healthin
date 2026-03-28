@@ -869,6 +869,21 @@ table td, table th {
     color: #000000 !important;
     padding: 10px !important;
 }
+/* ── Chatbot Bubbles ─────────────────────────────────────────── */
+.message-wrap .message, .message.user, .message.bot {
+    background: rgba(255, 255, 255, 0.85) !important;
+    color: #111111 !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 12px !important;
+}
+.message.bot {
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+.message.user {
+    background: rgba(62, 207, 142, 0.3) !important;
+    border: 1px solid rgba(62, 207, 142, 0.5) !important;
+}
 
 /* ── Scrollbar ───────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
@@ -1050,16 +1065,6 @@ with gr.Blocks(
                 fn=run_triage,
                 inputs=[symptom_box, voice_input, age_box, gender_dd, lang_dd],
                 outputs=[output_md],
-            )
-
-            # ── Example cases ─────────────────────────────────────────
-            gr.Examples(
-                examples=EXAMPLE_CASES,
-                inputs=[symptom_box, age_box, gender_dd, lang_dd],
-                outputs=[output_md],
-                fn=lambda s, a, g, l: run_triage(s, None, a, g, l),
-                cache_examples=False,
-                label=UI_TEXT["en"]["examples_label"],
             )
 
             # ── Footer ────────────────────────────────────────────────
